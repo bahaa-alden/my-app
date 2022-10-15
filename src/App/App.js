@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, Fragment } from "react";
 import styles from "./App.module.css";
 import CardList from "../components/CardList/CardList";
 import Filter from "../components/Filter/Filter";
 import Modal from "../components/Modal/Modal";
 import Row from "./Row";
 import Button from "../components/Layout/Button";
+import Adduser from "../components/Adduser/Adduser";
 function App() {
   const [state, setState] = useState([
     {
@@ -78,28 +79,32 @@ function App() {
     });
   }
   return (
-    <div className={styles.mainContainer}>
-      <Modal show={ShowRec} close={closePop} add={add} />
-
-      <h1>List of data</h1>
-      <Row>
-        <Button
-          style={{ marginRight: "20px" }}
-          onClick={() => {
-            setShow(!show);
-          }}
-        >
-          {show ? "Hide Names" : "Show Names"}
-        </Button>
-        <Button className={styles.button} onClick={closePop}>
-          New Record
-        </Button>
-      </Row>
-      <Filter getValue={getValue} />
-      <div className={show ? styles.show : styles.hide}>
-        <CardList nameList={Handelr()} deleteF={deleteFun} type="men" />
+    <Fragment>
+      <div className={styles.mainContainer}>
+        <h1>List of data</h1>
+        <Row>
+          <Button
+            style={{ marginRight: "20px" }}
+            onClick={() => {
+              setShow(!show);
+            }}
+          >
+            {show ? "Hide Names" : "Show Names"}
+          </Button>
+          <Button className={styles.button} onClick={closePop}>
+            New Record
+          </Button>
+        </Row>
+        <Filter getValue={getValue} />
+        <div className={show ? styles.show : styles.hide}>
+          <CardList nameList={Handelr()} deleteF={deleteFun} type="men" />
+        </div>
       </div>
-    </div>
+      <Modal show={ShowRec} close={closePop} add={add}>
+        <Adduser />
+      </Modal>
+      ;
+    </Fragment>
   );
 }
 
