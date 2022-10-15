@@ -31,6 +31,14 @@ function App() {
       phone: "0950513746",
       type: "girl",
     },
+    {
+      id: 3,
+      name: "kareem",
+      age: 31,
+      address: "aleppo",
+      phone: "0932840695",
+      type: "man",
+    },
   ]);
 
   const [show, setShow] = useState(true);
