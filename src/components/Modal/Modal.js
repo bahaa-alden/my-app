@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import styles from "./Modal.module.css";
 import Form from "../Layout/Form";
+import Button from "../Layout/Button";
 const Backdrop = ({ close, show }) => {
   return (
     <div
@@ -24,7 +25,7 @@ const Overly = ({ show, add }) => {
         <Form.Controller>
           <label htmlFor="name">Name</label>
           <input
-            type="name"
+            id="name"
             placeholder="Enter name"
             value={name}
             onChange={(e) => {
@@ -35,7 +36,7 @@ const Overly = ({ show, add }) => {
         <Form.Controller>
           <label htmlFor="age">age</label>
           <input
-            type="age"
+            id="age"
             placeholder="Enter age"
             value={age}
             onChange={(e) => {
@@ -46,7 +47,7 @@ const Overly = ({ show, add }) => {
         <Form.Controller>
           <label htmlFor="address">Address</label>
           <input
-            type="address"
+            id="address"
             placeholder="Enter address"
             value={address}
             onChange={(e) => {
@@ -57,7 +58,7 @@ const Overly = ({ show, add }) => {
         <Form.Controller>
           <label htmlFor="phone">Phone</label>
           <input
-            type="phone"
+            id="phone"
             placeholder="Enter phone"
             value={phone}
             onChange={(e) => {
@@ -65,6 +66,10 @@ const Overly = ({ show, add }) => {
             }}
           />
         </Form.Controller>
+        <div>
+          <Button type="butto">Save</Button>
+          <Button type={"reset"}>Reset</Button>
+        </div>
       </Form>
     </div>
   );

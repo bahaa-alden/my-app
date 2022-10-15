@@ -4,6 +4,7 @@ function Button(props) {
   return (
     <button
       className={styles.button}
+      type={`${props.type ?props.type: "button"}`}
       style={props.style}
       onClick={props.onClick}
     >
