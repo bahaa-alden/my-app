@@ -8,59 +8,62 @@ function Adduser() {
     address: "",
     phone: "",
   });
-
   function inputChange(e) {
     let key = e.target.id;
+
     let value = e.target.value;
-    setUser({ ...user, [key]: value });
+    setUser((pervState) => {
+      return { ...pervState, [key]: value };
+    });
+  }
+  function handler(e) {
+    e.preventDefault();
   }
   return (
-    <div>
-      <Form>
-        <Form.Controller>
-          <label htmlFor="name">Name</label>
-          <input
-            id="name"
-            placeholder="Enter name"
-            value={user.name}
-            onChange={inputChange}
-          />
-        </Form.Controller>
-        <Form.Controller>
-          <label htmlFor="age">age</label>
-          <input
-            id="age"
-            placeholder="Enter age"
-            value={user.age}
-            onChange={inputChange}
-          />
-        </Form.Controller>
-        <Form.Controller>
-          <label htmlFor="address">Address</label>
-          <input
-            id="address"
-            placeholder="Enter address"
-            value={user.address}
-            onChange={inputChange}
-          />
-        </Form.Controller>
-        <Form.Controller>
-          <label htmlFor="phone">Phone</label>
-          <input
-            id="phone"
-            placeholder="Enter phone"
-            value={user.phone}
-            onChange={inputChange}
-          />
-        </Form.Controller>
-        <div style={{ marginTop: "20px" }}>
-          <Button type="butto" style={{ marginRight: "20px" }}>
-            Save
-          </Button>
-          <Button type="reset">Reset</Button>
-        </div>
-      </Form>
-    </div>
+    <Form onSubmit={handler}>
+      <Form.Controller>
+        <label htmlFor="name">Name</label>
+        <input
+          id="name"
+          placeholder="Enter name"
+          value={user.name}
+          onChange={inputChange}
+        />
+      </Form.Controller>
+      <Form.Controller>
+        <label htmlFor="age">age</label>
+        <input
+          id="age"
+          placeholder="Enter age"
+          value={user.age}
+          onChange={inputChange}
+        />
+      </Form.Controller>
+      <Form.Controller>
+        <label htmlFor="address">Address</label>
+        <input
+          id="address"
+          placeholder="Enter address"
+          value={user.address}
+          onChange={inputChange}
+        />
+      </Form.Controller>
+      <Form.Controller>
+        <label htmlFor="phone">Phone</label>
+        <input
+          id="phone"
+          placeholder="Enter phone"
+          value={user.phone}
+          onChange={inputChange}
+        />
+      </Form.Controller>
+      <div style={{ marginTop: "20px" }}>
+        <Button type="butto" style={{ marginRight: "20px" }}>
+          Save
+        </Button>
+        <Button type="reset">Reset</Button>
+      </div>
+    </Form>
   );
 }
 
