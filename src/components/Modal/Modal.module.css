@@ -1,0 +1,34 @@
+.backDrop {
+  z-index: 1000;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: black;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s linear;
+}
+.showBack {
+  visibility: visible;
+  opacity: 0.5;
+}
+.overly {
+  z-index: 1100;
+  position: fixed;
+  width: 500px;
+  padding: 20px;
+  top: 50%;
+  left: 50%;
+  background-color: white;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  transition: all 0.3s linear;
+  opacity: 0;
+  visibility: hidden;
+}
+.showOverly {
+  visibility: visible;
+  opacity: 1;
+}
