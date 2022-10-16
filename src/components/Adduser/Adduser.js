@@ -8,11 +8,10 @@ function Adduser({ add, length, close }) {
     age: "",
     address: "",
     phone: "",
-    gender: "",
+    gender: "man",
   });
   function inputChange(e) {
     let key = e.target.id;
-
     let value = e.target.value;
     setUser((pervState) => {
       return { ...pervState, [key]: value };
@@ -25,7 +24,7 @@ function Adduser({ add, length, close }) {
       age: "",
       address: "",
       phone: "",
-      gender: "",
+      gender: "man",
     });
   }
   function handler(e) {
@@ -45,6 +44,7 @@ function Adduser({ add, length, close }) {
           placeholder="Enter name"
           value={user.name}
           onChange={inputChange}
+          required={true}
         />
       </Form.Controller>
       <Form.Controller>
@@ -54,6 +54,7 @@ function Adduser({ add, length, close }) {
           placeholder="Enter age"
           value={user.age}
           onChange={inputChange}
+          required={true}
         />
       </Form.Controller>
       <Form.Controller>
@@ -63,6 +64,7 @@ function Adduser({ add, length, close }) {
           placeholder="Enter address"
           value={user.address}
           onChange={inputChange}
+          required={true}
         />
       </Form.Controller>
       <Form.Controller>
@@ -72,16 +74,21 @@ function Adduser({ add, length, close }) {
           placeholder="Enter phone"
           value={user.phone}
           onChange={inputChange}
+          required={true}
         />
       </Form.Controller>
       <Form.Controller>
         <label htmlFor="gender">Gender</label>
-        <input
+        <select
           id="gender"
           placeholder="Enter gender"
           value={user.gender}
           onChange={inputChange}
-        />
+          required={true}
+        >
+          <option>man</option>
+          <option>girl</option>
+        </select>
       </Form.Controller>
       <div style={{ marginTop: "20px" }}>
         <Button type="submit" style={{ marginRight: "20px" }}>
