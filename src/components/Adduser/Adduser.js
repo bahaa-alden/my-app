@@ -18,11 +18,22 @@ function Adduser({ add, length }) {
       return { ...pervState, [key]: value };
     });
   }
+  function reset() {
+    setUser({
+      id: length,
+      name: "",
+      age: "",
+      address: "",
+      phone: "",
+      gender: "",
+    });
+  }
   function handler(e) {
     e.preventDefault();
     length++;
     setUser({ ...user, id: length });
     add(user);
+    reset();
   }
   return (
     <Form onSubmit={handler}>
@@ -75,7 +86,9 @@ function Adduser({ add, length }) {
         <Button type="submit" style={{ marginRight: "20px" }}>
           Save
         </Button>
-        <Button type="reset">Reset</Button>
+        <Button type="reset" onClick={reset}>
+          Reset
+        </Button>
       </div>
     </Form>
   );
