@@ -1,10 +1,10 @@
 import React from "react";
 import styles from "./Card.module.css";
-function Card({ name, type, address, age, phone, id, deleteFun }) {
+function Card({ name, gender, address, age, phone, id, deleteFun }) {
   return (
     <div
       className={styles.cardWrapper}
-      style={{ background: type === "man" ? "blue" : "red" }}
+      style={{ background: gender === "man" ? "blue" : "red" }}
     >
       <p>Name :{name}</p>
       <p>age :{age}</p>

@@ -14,7 +14,7 @@ function App() {
       age: 31,
       address: "aleppo",
       phone: "0932840695",
-      type: "man",
+      gender: "man",
     },
     {
       id: 1,
@@ -22,7 +22,7 @@ function App() {
       age: 21,
       address: "aleppo",
       phone: "0950513746",
-      type: "man",
+      gender: "man",
     },
     {
       id: 2,
@@ -30,7 +30,7 @@ function App() {
       age: 21,
       address: "aleppo",
       phone: "0950513746",
-      type: "girl",
+      gender: "girl",
     },
     {
       id: 3,
@@ -38,7 +38,7 @@ function App() {
       age: 31,
       address: "aleppo",
       phone: "0932840695",
-      type: "man",
+      gender: "man",
     },
   ]);
 
@@ -63,21 +63,13 @@ function App() {
     setShowRec(!ShowRec);
   }
 
-  function add(name, age, address, phone) {
-    let newRec = {
-      id: state.length,
-      name: name,
-      age: age,
-      address: address,
-      phone: phone,
-      type: "man",
-    };
-
+  function add(data) {
     setState((pervState) => {
-      pervState.push(newRec);
+      pervState.push(data);
       return pervState;
     });
   }
+
   return (
     <Fragment>
       <div className={styles.mainContainer}>
@@ -97,11 +89,11 @@ function App() {
         </Row>
         <Filter getValue={getValue} />
         <div className={show ? styles.show : styles.hide}>
-          <CardList nameList={Handelr()} deleteF={deleteFun} type="men" />
+          <CardList nameList={Handelr()} deleteF={deleteFun} />
         </div>
       </div>
       <Modal show={ShowRec} close={closePop} add={add}>
-        <Adduser />
+        <Adduser add={add} length={state.length} />
       </Modal>
       ;
     </Fragment>
