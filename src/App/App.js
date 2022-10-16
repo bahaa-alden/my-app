@@ -64,10 +64,7 @@ function App() {
   }
 
   function add(data) {
-    setState((pervState) => {
-      pervState.push(data);
-      return pervState;
-    });
+    setState((pervState) => [...pervState, data]);
   }
 
   return (
@@ -93,7 +90,7 @@ function App() {
         </div>
       </div>
       <Modal show={ShowRec} close={closePop} add={add}>
-        <Adduser add={add} length={state.length} />
+        <Adduser add={add} length={state.length} close={closePop} />
       </Modal>
       ;
     </Fragment>

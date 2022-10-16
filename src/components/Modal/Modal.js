@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
 import styles from "./Modal.module.css";
-import Form from "../Layout/Form";
-import Button from "../Layout/Button";
+
 const Backdrop = ({ close, show }) => {
   return (
     <div

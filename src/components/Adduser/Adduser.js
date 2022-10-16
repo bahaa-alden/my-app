@@ -1,7 +1,7 @@
 ﻿import React, { useState } from "react";
 import Form from "../Layout/Form";
 import Button from "../Layout/Button";
-function Adduser({ add, length }) {
+function Adduser({ add, length, close }) {
   const [user, setUser] = useState({
     id: length,
     name: "",
@@ -34,6 +34,7 @@ function Adduser({ add, length }) {
     setUser({ ...user, id: length });
     add(user);
     reset();
+    close();
   }
   return (
     <Form onSubmit={handler}>
